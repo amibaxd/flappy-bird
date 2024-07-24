@@ -13,7 +13,6 @@ public class SpawnManager : MonoBehaviour
         if (spawnTimer >= spawnDelay)
         {
             pipes[FindPipe()].SetActive(true);
-            pipes[FindPipe()].GetComponent<MoveLeft>().enabled = true;
             spawnTimer = 0;
         }
         else
