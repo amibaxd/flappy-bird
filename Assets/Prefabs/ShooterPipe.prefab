@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 1502959455221428966}
   - component: {fileID: 8989897328004371183}
   - component: {fileID: 743570880132218088}
+  - component: {fileID: 1394684069420623745}
   m_Layer: 0
   m_Name: ShooterPipe
   m_TagString: Untagged
@@ -92,6 +93,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftBoundX: -13
+--- !u!114 &1394684069420623745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4099271285372850435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e4fed2ed721fe41a5423db49d7b1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topBoundY: -0.4
+  bottomBoundY: -3.9
+  spawnPosX: 18.5
 --- !u!1 &4127305228067138086
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +120,7 @@ GameObject:
   - component: {fileID: 7196366745226165226}
   - component: {fileID: 3664228948461227088}
   - component: {fileID: 468096063897371949}
+  - component: {fileID: 7856765033682568247}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Untagged
@@ -199,8 +216,8 @@ MonoBehaviour:
   - {fileID: 9141474160277829777}
   - {fileID: 2542108774261789441}
   - {fileID: 201042209048619308}
-  attackDelay: 1
-  rightBoundX: 0
+  attackDelay: 0.7
+  rightBoundX: 15
 --- !u!61 &468096063897371949
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -246,6 +263,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7856765033682568247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4127305228067138086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf50a8c76c36e4b49a5d150adb98cc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5156008991099211299
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +322,7 @@ GameObject:
   - component: {fileID: 5374261119040941573}
   - component: {fileID: 1067116637912298176}
   - component: {fileID: 5471289673541804870}
+  - component: {fileID: 8306289944820938764}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -412,6 +442,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8306289944820938764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579213845972480493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf50a8c76c36e4b49a5d150adb98cc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1478032629114375807
 PrefabInstance:
   m_ObjectHideFlags: 0

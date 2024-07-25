@@ -7,6 +7,7 @@ public class MoveLeft : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(new Vector2(-speed * Time.deltaTime, 0));
+        if(!GameManager.instance.isGameOver)
+            transform.Translate(new Vector2(-speed * Time.deltaTime, 0));
     }
 }

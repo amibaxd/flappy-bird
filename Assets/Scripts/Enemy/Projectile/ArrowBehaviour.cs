@@ -24,12 +24,11 @@ public class ArrowBehaviour : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            Debug.Log("Player hit");
+            GameManager.instance.EndGame();
             gameObject.SetActive(false);
         }
         else if(collision.tag == "Ground")
         {
-            Debug.Log("Ground hit");
             gameObject.SetActive(false);
         }
     }

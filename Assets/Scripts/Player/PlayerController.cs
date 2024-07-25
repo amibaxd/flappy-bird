@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private float rotationAmount;
     [SerializeField] private float rotationValue;
 
+    [SerializeField] private float upperBoundY;
+
     private Rigidbody2D playerRb;
 
     private void Awake()
@@ -19,25 +21,35 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!GameManager.instance.isGameOver)
         {
-            playerRb.velocity = new Vector2(playerRb.velocity.x, flapStrength);
-            rotationAmount = -90;
-        }
-        if (rotationAmount <= -180)
-            rotationAmount = -90;
-        else
-            rotationAmount -= rotationValue;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                playerRb.velocity = new Vector2(0, flapStrength);
+                rotationAmount = -45;
+            }
+            if (rotationAmount <= -180)
+                rotationAmount = -45;
+            else
+                rotationAmount -= rotationValue * Time.deltaTime * 500;
 
-        transform.rotation = Quaternion.Euler(0, 0, rotationAmount);
+            transform.rotation = Quaternion.Euler(0, 0, rotationAmount);
+        }
+
+        if(transform.position.y >= upperBoundY)
+        {
+            transform.position = new Vector2(transform.position.x, upperBoundY);
+        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Pipe")
         {
             rotationValue = 0;
             GetComponent<PlayerController>().enabled = false;
+            GameManager.instance.EndGame();
         }
     }
 }
