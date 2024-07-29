@@ -42,14 +42,14 @@ GameObject:
   - component: {fileID: 1502959455221428966}
   - component: {fileID: 8989897328004371183}
   - component: {fileID: 743570880132218088}
-  - component: {fileID: 1394684069420623745}
+  - component: {fileID: 189648640758284413}
   m_Layer: 0
   m_Name: ShooterPipe
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1502959455221428966
 Transform:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftBoundX: -13
---- !u!114 &1394684069420623745
+--- !u!114 &189648640758284413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e4fed2ed721fe41a5423db49d7b1d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topBoundY: -0.4
-  bottomBoundY: -3.9
+  topBoundY: -2.9
+  bottomBoundY: -5.8
   spawnPosX: 18.5
 --- !u!1 &4127305228067138086
 GameObject:
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 7196366745226165226}
   - component: {fileID: 3664228948461227088}
   - component: {fileID: 468096063897371949}
-  - component: {fileID: 7856765033682568247}
+  - component: {fileID: 5415291061937652352}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Untagged
@@ -137,7 +137,7 @@ Transform:
   m_GameObject: {fileID: 4127305228067138086}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.49, y: 2.71, z: -0.13100682}
+  m_LocalPosition: {x: 0.56, y: 4.66, z: -0.13100682}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   - {fileID: 2542108774261789441}
   - {fileID: 201042209048619308}
   attackDelay: 0.7
-  rightBoundX: 15
+  rightBoundX: 5
 --- !u!61 &468096063897371949
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7856765033682568247
+--- !u!114 &5415291061937652352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 5374261119040941573}
   - component: {fileID: 1067116637912298176}
   - component: {fileID: 5471289673541804870}
-  - component: {fileID: 8306289944820938764}
+  - component: {fileID: 1751978821007452813}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -339,7 +339,7 @@ Transform:
   m_GameObject: {fileID: 8579213845972480493}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.48, y: -1.89, z: -0.13100682}
+  m_LocalPosition: {x: 0.55, y: 0.14, z: -0.13100682}
   m_LocalScale: {x: 1.514, y: 8.031306, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -385,7 +385,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -442,7 +442,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8306289944820938764
+--- !u!114 &1751978821007452813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -476,7 +476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7916298763196726020, guid: f520c419e3709fb4ab756397cd4ca0b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2508
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 7916298763196726020, guid: f520c419e3709fb4ab756397cd4ca0b8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -622,7 +622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7916298763196726020, guid: f520c419e3709fb4ab756397cd4ca0b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2508
+      value: 5.323
       objectReference: {fileID: 0}
     - target: {fileID: 7916298763196726020, guid: f520c419e3709fb4ab756397cd4ca0b8, type: 3}
       propertyPath: m_LocalPosition.z

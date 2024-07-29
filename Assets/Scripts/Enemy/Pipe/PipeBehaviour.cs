@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class PipeBehaviour : MonoBehaviour
 {
-    [SerializeField] private float topBoundY;
-    [SerializeField] private float bottomBoundY;
-    [SerializeField] private float spawnPosX; 
+    [SerializeField] protected float topBoundY;
+    [SerializeField] protected float bottomBoundY;
+    [SerializeField] protected float spawnPosX; 
 
     private void OnEnable()
     {
-        transform.position = new Vector2(spawnPosX, Random.Range(topBoundY, bottomBoundY));
+        float randomY = Random.Range(bottomBoundY, topBoundY);
+        transform.position = new Vector2(spawnPosX, randomY);
     }
 
     public void OnPlayerCollision()
     {
-        Debug.Log("Collided with Player");
+        GameManager.instance.EndGame();
     }
 }
