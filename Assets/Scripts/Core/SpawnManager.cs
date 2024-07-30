@@ -6,8 +6,6 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] pipes;
-    [SerializeField] private int numberOfNormalPipes;
-    [SerializeField] private int numberOfShooterPipes;
 
     [SerializeField] private float spawnDelay;
     private float spawnTimer;

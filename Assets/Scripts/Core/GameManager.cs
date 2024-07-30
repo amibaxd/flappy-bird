@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public bool isGameOver { get; private set; }
+    public int score { get; private set; }
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         }
 
         isGameOver = false;
+        score = 0;
     }
 
     private void Update()
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             isGameOver = false;
+            score = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
@@ -39,5 +42,10 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         isGameOver = true;
+    }
+
+    public void AddScore(int _score)
+    {
+        score += _score;
     }
 }
