@@ -2348,7 +2348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6556302231200617821, guid: dd015820a10dc7840854407ce7a407bc, type: 3}
       propertyPath: flapStrength
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6556302231200617821, guid: dd015820a10dc7840854407ce7a407bc, type: 3}
       propertyPath: rotationValue
