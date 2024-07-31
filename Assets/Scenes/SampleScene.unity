@@ -924,7 +924,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95be169dfac7c0b43a5b5a9655d6fd12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 0
+  baseSpeed: 0
+  endSpeed: 0
 --- !u!114 &587887295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,7 +1734,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -93.440704, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2289,12 +2291,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 434893782876623959, guid: dd015820a10dc7840854407ce7a407bc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.42486003
+      objectReference: {fileID: 0}
+    - target: {fileID: 434893782876623959, guid: dd015820a10dc7840854407ce7a407bc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.45774
+      objectReference: {fileID: 0}
+    - target: {fileID: 434893782876623959, guid: dd015820a10dc7840854407ce7a407bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9
+      value: -2.6577
       objectReference: {fileID: 0}
     - target: {fileID: 434893782876623959, guid: dd015820a10dc7840854407ce7a407bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.0876
       objectReference: {fileID: 0}
     - target: {fileID: 434893782876623959, guid: dd015820a10dc7840854407ce7a407bc, type: 3}
       propertyPath: m_LocalPosition.z

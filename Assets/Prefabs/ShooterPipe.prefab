@@ -249,8 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e4fed2ed721fe41a5423db49d7b1d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topBoundY: -2.9
-  bottomBoundY: -5.8
+  topBoundY: 3.5
+  bottomBoundY: -8
   spawnPosX: 18.5
 --- !u!1 &4127305228067138086
 GameObject:
@@ -473,7 +473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5374261119040941573
 Transform:
   m_ObjectHideFlags: 0
