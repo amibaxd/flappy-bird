@@ -19,7 +19,9 @@ public class MoveLeft : MonoBehaviour
     private void Update()
     {
         if(!GameManager.instance.isGameOver)
-            transform.Translate(new Vector2((float)-speed * Time.deltaTime, 0));
+            transform.Translate(new Vector2((float)speed * Time.deltaTime * -1, 0));
+
+        speed = GameManager.instance.speed;
 
         Debug.Log(speed);
     }
