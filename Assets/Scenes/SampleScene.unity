@@ -887,7 +887,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9d09d08d2bf361947ae8f8bc0be8e2df, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1200,6 +1200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0408078fea91bc34e839b63ad3ec53a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &766786325 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9198692784191380729, guid: 505fdaf0bd9696844989e9f23702f83d, type: 3}
@@ -2338,6 +2339,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 860297872716466398, guid: dd015820a10dc7840854407ce7a407bc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5333184147653844631, guid: dd015820a10dc7840854407ce7a407bc, type: 3}
       propertyPath: m_GravityScale
       value: 3.5
@@ -2356,6 +2361,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7002779080270686752, guid: dd015820a10dc7840854407ce7a407bc, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002779080270686752, guid: dd015820a10dc7840854407ce7a407bc, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
