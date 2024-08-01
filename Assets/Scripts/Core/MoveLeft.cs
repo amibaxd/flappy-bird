@@ -22,7 +22,5 @@ public class MoveLeft : MonoBehaviour
             transform.Translate(new Vector2((float)speed * Time.deltaTime * -1, 0));
 
         speed = GameManager.instance.speed;
-
-        Debug.Log(speed);
     }
 }

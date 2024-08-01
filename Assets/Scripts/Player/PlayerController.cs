@@ -49,7 +49,8 @@ public class PlayerController : MonoBehaviour
         {
             rotationValue = 0;
             GetComponent<PlayerController>().enabled = false;
-            GameManager.instance.EndGame();
+            GameManager.instance.isGameOver = true;
+            UIManager.instance.deathScreen.SetActive(true);
         }
     }
 }

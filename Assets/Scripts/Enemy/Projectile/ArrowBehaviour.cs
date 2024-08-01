@@ -24,7 +24,7 @@ public class ArrowBehaviour : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            GameManager.instance.EndGame();
+            GameManager.instance.isGameOver = true;
             gameObject.SetActive(false);
         }
         else if(collision.tag == "Ground")

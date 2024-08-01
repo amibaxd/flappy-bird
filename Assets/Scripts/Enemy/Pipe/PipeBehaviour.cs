@@ -14,6 +14,6 @@ public class PipeBehaviour : MonoBehaviour
 
     public void OnPlayerCollision()
     {
-        GameManager.instance.EndGame();
+        GameManager.instance.isGameOver = true;
     }
 }
