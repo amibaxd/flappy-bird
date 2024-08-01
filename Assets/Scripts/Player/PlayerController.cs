@@ -21,20 +21,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.instance.isGameOver)
+        if (!GameManager.instance.isStarting)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                playerRb.velocity = new Vector2(0, flapStrength);
-                rotationAmount = -45;
-            }
-            if (rotationAmount <= -180)
-                rotationAmount = -45;
-            else
-                rotationAmount -= rotationValue * Time.deltaTime * 500;
-
-            transform.rotation = Quaternion.Euler(0, 0, rotationAmount);
+            Flap();
         }
+        else
+        {
+            playerRb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        }
+        
 
         if(transform.position.y >= upperBoundY)
         {
@@ -47,10 +42,37 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Pipe")
         {
-            rotationValue = 0;
-            GetComponent<PlayerController>().enabled = false;
-            GameManager.instance.isGameOver = true;
-            UIManager.instance.deathScreen.SetActive(true);
+            KillPlayer();
         }
+    }
+
+    public void Flap()
+    {
+        if(playerRb != null)
+        {
+            playerRb.constraints = RigidbodyConstraints2D.FreezePositionX;
+            if (!GameManager.instance.isGameOver)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    playerRb.velocity = new Vector2(0, flapStrength);
+                    rotationAmount = -45;
+                }
+                if (rotationAmount <= -180)
+                    rotationAmount = -45;
+                else
+                    rotationAmount -= rotationValue * Time.deltaTime * 500;
+
+                transform.rotation = Quaternion.Euler(0, 0, rotationAmount);
+            }
+        }
+    }
+
+    public void KillPlayer()
+    {
+        rotationValue = 0;
+        GetComponent<PlayerController>().enabled = false;
+        GameManager.instance.isGameOver = true;
+        UIManager.instance.deathScreen.SetActive(true);
     }
 }

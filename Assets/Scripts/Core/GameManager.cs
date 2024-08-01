@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using System.Linq.Expressions;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver;
     public int score;
+
+    public bool isStarting;
+
+    private PlayerController playerController;
 
     private void Awake()
     {
@@ -25,15 +30,24 @@ public class GameManager : MonoBehaviour
 
         UIManager.instance.pauseScreen.SetActive(false);
         UIManager.instance.deathScreen.SetActive(false);
+        UIManager.instance.startText.enabled = true;
+
+        playerController = FindObjectOfType<PlayerController>();
 
         speed = 5;
         isGameOver = false;
         score = 0;
+
+        isStarting = true;
     }
 
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isStarting = false;
+            playerController.Flap();
+        }
     }
     public void AddScore(int _score)
     {

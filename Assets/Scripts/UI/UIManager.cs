@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Texts")]
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] public TextMeshProUGUI startText;
 
     [Header("Buttons")]
     [SerializeField] private Button resumeButton;
@@ -50,12 +51,20 @@ public class UIManager : MonoBehaviour
         {
             RestartButton();
         }
+
+        if (!GameManager.instance.isStarting)
+            startText.enabled = false;
     }
 
     void ResumeButton()
     {
         Time.timeScale = Time.timeScale == 1 ? 0 : 1;
         pauseScreen.SetActive(Time.timeScale == 1 ? false : true);
+
+        if (GameManager.instance.isStarting && Time.timeScale == 0)
+            startText.enabled = false;
+        else if (GameManager.instance.isStarting && Time.timeScale == 1)
+            startText.enabled = true; 
     }
 
     void BackToMenuButton()
@@ -64,13 +73,17 @@ public class UIManager : MonoBehaviour
         GameManager.instance.isGameOver = false;
         GameManager.instance.score = 0;
         Time.timeScale = 1;
+        pauseScreen.SetActive(false);
     }
 
     void RestartButton()
     {
         GameManager.instance.isGameOver = false;
+        GameManager.instance.isStarting = true;
         GameManager.instance.score = 0;
         deathScreen.SetActive(false);
+        Time.timeScale = 1;
+        GameManager.instance.speed = 5;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

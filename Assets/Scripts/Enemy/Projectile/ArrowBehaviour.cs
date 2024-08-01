@@ -9,6 +9,13 @@ public class ArrowBehaviour : MonoBehaviour
 
     [SerializeField] private float speed;
 
+    private PlayerController playerController;
+
+
+    private void Awake()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+    }
     private void OnEnable()
     {
         player = GameObject.Find("Player");
@@ -24,8 +31,9 @@ public class ArrowBehaviour : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            GameManager.instance.isGameOver = true;
             gameObject.SetActive(false);
+
+            playerController.KillPlayer();
         }
         else if(collision.tag == "Ground")
         {

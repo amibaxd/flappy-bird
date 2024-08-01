@@ -13,9 +13,9 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
-        if (spawnTimer >= spawnDelay && !GameManager.instance.isGameOver)
+        if (spawnTimer >= spawnDelay && !GameManager.instance.isGameOver && !GameManager.instance.isStarting)
         {
-            pipes[FindPipe()].SetActive(true);
+            FindPipe().SetActive(true);
             spawnTimer = 0;
         }
         else
@@ -23,12 +23,12 @@ public class SpawnManager : MonoBehaviour
 
     }
 
-    int FindPipe()
+    GameObject FindPipe()
     {
         var inactivePipes = pipes.Where(pipe => !pipe.activeInHierarchy).ToArray();
         int randomPipeIndex = Random.Range(0, inactivePipes.Length);
 
-        return randomPipeIndex;
+        return inactivePipes[randomPipeIndex];
     }
 
 

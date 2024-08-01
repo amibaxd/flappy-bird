@@ -18,9 +18,20 @@ public class MoveLeft : MonoBehaviour
 
     private void Update()
     {
+        speed = GameManager.instance.speed;
+
+        if (GameManager.instance.isStarting)
+        {
+            if(gameObject.tag == "Background" && GameManager.instance.isStarting)
+            {
+                transform.Translate(new Vector2((float)speed * Time.deltaTime * -1, 0));
+                return;
+            }
+        }
+
         if(!GameManager.instance.isGameOver)
             transform.Translate(new Vector2((float)speed * Time.deltaTime * -1, 0));
 
-        speed = GameManager.instance.speed;
+        
     }
 }
