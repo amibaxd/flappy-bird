@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, upperBoundY);
         }
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -74,5 +73,6 @@ public class PlayerController : MonoBehaviour
         GetComponent<PlayerController>().enabled = false;
         GameManager.instance.isGameOver = true;
         UIManager.instance.deathScreen.SetActive(true);
+        GameManager.instance.UpdateHighScore(GameManager.instance.score);
     }
 }

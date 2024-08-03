@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEditor;
+using TMPro;
 
 public class MainMenuUIManager : MonoBehaviour
 {
@@ -15,11 +16,18 @@ public class MainMenuUIManager : MonoBehaviour
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button quitButton;
 
+    [Header("Texts")]
+    [SerializeField] private TextMeshProUGUI highScoreText;
+
     private void Awake()
     {
         playButton.onClick.AddListener(PlayButton);
         settingsButton.onClick.AddListener(SettingsButton);
         quitButton.onClick.AddListener(QuitButton);
+    }
+    private void Update()
+    {
+        highScoreText.text = "High Score : " + PlayerPrefs.GetInt("highScore");
     }
 
     void PlayButton()

@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [Header("Texts")]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] public TextMeshProUGUI startText;
+    [SerializeField] private TextMeshProUGUI highScoreText;
 
     [Header("Buttons")]
     [SerializeField] private Button resumeButton;
@@ -41,6 +42,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         scoreText.text = "Score : " + GameManager.instance.score;
+        highScoreText.text = "High Score : " + PlayerPrefs.GetInt("highScore");
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

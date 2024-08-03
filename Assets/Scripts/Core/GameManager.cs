@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver;
     public int score;
+    public int highScore;
 
     public bool isStarting;
 
@@ -69,5 +70,11 @@ public class GameManager : MonoBehaviour
                 speed = moveLeft.baseSpeed + (moveLeft.endSpeed - moveLeft.baseSpeed) * (Math.Log(adjustedI + 1) / Math.Log(50));
             }
         }
+    }
+
+    public void UpdateHighScore(int _score)
+    {
+        highScore = (_score > highScore) ? _score : highScore;
+        PlayerPrefs.SetInt("highScore", highScore);
     }
 }
