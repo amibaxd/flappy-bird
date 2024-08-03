@@ -44,7 +44,8 @@ public class UIManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ResumeButton();
+            if (!deathScreen.activeInHierarchy)
+                ResumeButton();
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -74,6 +75,7 @@ public class UIManager : MonoBehaviour
         GameManager.instance.score = 0;
         Time.timeScale = 1;
         pauseScreen.SetActive(false);
+        deathScreen.SetActive(false);
     }
 
     void RestartButton()

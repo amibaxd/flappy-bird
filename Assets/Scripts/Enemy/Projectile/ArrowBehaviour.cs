@@ -8,6 +8,8 @@ public class ArrowBehaviour : MonoBehaviour
     private Rigidbody2D arrowRb;
 
     [SerializeField] private float speed;
+    [SerializeField] private float speedScalingFactor;
+    [SerializeField] private float maxSpeed;
 
     private PlayerController playerController;
 
@@ -24,7 +26,7 @@ public class ArrowBehaviour : MonoBehaviour
 
         transform.position = firePoint.transform.position;
         Vector2 direction = player.transform.position - firePoint.transform.position;
-        arrowRb.AddForce(direction.normalized * speed, ForceMode2D.Impulse);
+        arrowRb.AddForce(direction.normalized * (speed <= maxSpeed ? speed + GameManager.instance.score * speedScalingFactor : maxSpeed), ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
