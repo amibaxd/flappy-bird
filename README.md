@@ -6,3 +6,6 @@ Any feedback is appreciated.
 
 It is available to be downloaded (compiled) in itch.io
 https://amibaxd.itch.io/taco-cat
+
+New Update:
+Added Local Leaderboard
