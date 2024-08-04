@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEngine.GraphicsBuffer;
 
 public class ArrowBehaviour : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class ArrowBehaviour : MonoBehaviour
 
     private PlayerController playerController;
 
-
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -23,10 +23,20 @@ public class ArrowBehaviour : MonoBehaviour
         player = GameObject.Find("Player");
         arrowRb = GetComponent<Rigidbody2D>();
         firePoint = transform.parent.gameObject;
-
         transform.position = firePoint.transform.position;
+
         Vector2 direction = player.transform.position - firePoint.transform.position;
         arrowRb.AddForce(direction.normalized * (speed <= maxSpeed ? speed + GameManager.instance.score * speedScalingFactor : maxSpeed), ForceMode2D.Impulse);
+    }
+
+    private void FixedUpdate()
+    {
+        if (player != null)
+        {
+            Vector2 direction = player.transform.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

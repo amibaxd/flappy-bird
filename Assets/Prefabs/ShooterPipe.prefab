@@ -266,7 +266,6 @@ GameObject:
   - component: {fileID: 7196366745226165226}
   - component: {fileID: 3664228948461227088}
   - component: {fileID: 468096063897371949}
-  - component: {fileID: 5415291061937652352}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Pipe
@@ -396,7 +395,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0055294037, y: -0.0055286884}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -407,20 +406,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9668274, y: 0.9447131}
   m_EdgeRadius: 0
---- !u!114 &5415291061937652352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4127305228067138086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf50a8c76c36e4b49a5d150adb98cc14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5156008991099211299
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +455,6 @@ GameObject:
   - component: {fileID: 5374261119040941573}
   - component: {fileID: 1067116637912298176}
   - component: {fileID: 5471289673541804870}
-  - component: {fileID: 1751978821007452813}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -588,18 +574,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1751978821007452813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8579213845972480493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf50a8c76c36e4b49a5d150adb98cc14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1478032629114375807
 PrefabInstance:
   m_ObjectHideFlags: 0

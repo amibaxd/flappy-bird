@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject[] pipes;
 
     [SerializeField] private float spawnDelay;
-    private float spawnTimer;
+    private float spawnTimer = Mathf.Infinity;
 
 
     private void Update()
@@ -20,6 +20,13 @@ public class SpawnManager : MonoBehaviour
         }
         else
             spawnTimer += Time.deltaTime;
+
+        if (GameManager.instance.score == 20)
+            spawnDelay = 1.4f;
+        else if (GameManager.instance.score == 40)
+            spawnDelay = 1.3f;
+        else if (GameManager.instance.score == 70)
+            spawnDelay = 1.2f;
 
     }
 

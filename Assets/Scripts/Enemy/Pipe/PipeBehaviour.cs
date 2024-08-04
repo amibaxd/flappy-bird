@@ -12,8 +12,4 @@ public class PipeBehaviour : MonoBehaviour
         transform.position = new Vector2(spawnPosX, randomY);
     }
 
-    public void OnPlayerCollision()
-    {
-        GameManager.instance.isGameOver = true;
-    }
 }

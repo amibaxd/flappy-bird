@@ -12,14 +12,14 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     [Header("Texts")]
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] public TextMeshProUGUI scoreText;
     [SerializeField] public TextMeshProUGUI startText;
-    [SerializeField] private TextMeshProUGUI highScoreText;
 
     [Header("Buttons")]
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button backToMenuButton;
     [SerializeField] private Button restartButton;
+    [SerializeField] private Button deathBackToMenuButton;
 
     [Header("Screens")]
     [SerializeField] public GameObject pauseScreen;
@@ -38,11 +38,12 @@ public class UIManager : MonoBehaviour
         resumeButton.onClick.AddListener(ResumeButton);
         backToMenuButton.onClick.AddListener(BackToMenuButton);
         restartButton.onClick.AddListener(RestartButton);
+
+        deathBackToMenuButton.onClick.AddListener(BackToMenuButton);
     }
     private void Update()
     {
         scoreText.text = "Score : " + GameManager.instance.score;
-        highScoreText.text = "High Score : " + PlayerPrefs.GetInt("highScore");
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -54,6 +55,9 @@ public class UIManager : MonoBehaviour
         {
             RestartButton();
         }
+
+        if (deathScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+            BackToMenuButton();
 
         if (!GameManager.instance.isStarting)
             startText.enabled = false;
@@ -70,7 +74,7 @@ public class UIManager : MonoBehaviour
             startText.enabled = true; 
     }
 
-    void BackToMenuButton()
+    public void BackToMenuButton()
     {
         SceneManager.LoadScene(0);
         GameManager.instance.isGameOver = false;
@@ -78,6 +82,14 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         pauseScreen.SetActive(false);
         deathScreen.SetActive(false);
+        scoreText.enabled = false;
+
+        if (MainMenuUIManager.instance != null)
+        {
+            MainMenuUIManager.instance.mainMenuScreen.SetActive(true);
+            MainMenuUIManager.instance.nameInputField.text = "";
+        }
+            
     }
 
     void RestartButton()

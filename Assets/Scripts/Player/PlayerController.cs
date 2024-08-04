@@ -41,7 +41,8 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Pipe")
         {
-            KillPlayer();
+            if(!GameManager.instance.isGameOver)
+                KillPlayer();
         }
     }
 
@@ -73,6 +74,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<PlayerController>().enabled = false;
         GameManager.instance.isGameOver = true;
         UIManager.instance.deathScreen.SetActive(true);
-        GameManager.instance.UpdateHighScore(GameManager.instance.score);
+        if(LeaderboardManager.instance != null && MainMenuUIManager.instance != null)
+            LeaderboardManager.instance.AddHighScore(MainMenuUIManager.instance.playerName, GameManager.instance.score);
     }
 }

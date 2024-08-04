@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Linq.Expressions;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class GameManager : MonoBehaviour
     public bool isStarting;
 
     private PlayerController playerController;
-
     private void Awake()
     {
         if(instance != null && instance != this)
@@ -28,10 +28,13 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-
-        UIManager.instance.pauseScreen.SetActive(false);
-        UIManager.instance.deathScreen.SetActive(false);
-        UIManager.instance.startText.enabled = true;
+        
+        if(UIManager.instance != null)
+        {
+            UIManager.instance.pauseScreen.SetActive(false);
+            UIManager.instance.deathScreen.SetActive(false);
+            UIManager.instance.startText.enabled = true;
+        }
 
         playerController = FindObjectOfType<PlayerController>();
 
@@ -70,11 +73,5 @@ public class GameManager : MonoBehaviour
                 speed = moveLeft.baseSpeed + (moveLeft.endSpeed - moveLeft.baseSpeed) * (Math.Log(adjustedI + 1) / Math.Log(50));
             }
         }
-    }
-
-    public void UpdateHighScore(int _score)
-    {
-        highScore = (_score > highScore) ? _score : highScore;
-        PlayerPrefs.SetInt("highScore", highScore);
     }
 }
