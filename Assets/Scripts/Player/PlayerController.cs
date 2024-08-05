@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
-        rotationAmount = -90;
+        rotationAmount = 0;
     }
 
     private void Update()
@@ -56,10 +56,10 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     playerRb.velocity = new Vector2(0, flapStrength);
-                    rotationAmount = -45;
+                    rotationAmount = 45;
                 }
-                if (rotationAmount <= -180)
-                    rotationAmount = -45;
+                if (rotationAmount <= -90)
+                    rotationAmount = 45;
                 else
                     rotationAmount -= rotationValue * Time.deltaTime * 500;
 
