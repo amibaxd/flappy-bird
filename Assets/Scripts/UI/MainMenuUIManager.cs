@@ -76,11 +76,15 @@ public class MainMenuUIManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-            PlayButton();
+        if(SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+                PlayButton();
 
-        if (leaderboardScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
-            BackToMenuButton();
+            if (leaderboardScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+                BackToMenuButton();
+        }
+        
     }
 
     void PlayButton()

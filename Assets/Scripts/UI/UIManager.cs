@@ -45,23 +45,41 @@ public class UIManager : MonoBehaviour
     {
         scoreText.text = "Score : " + GameManager.instance.score;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+        if(SceneManager.GetActiveScene().name == "MainGame")
         {
-            if (!deathScreen.activeInHierarchy)
-                ResumeButton();
+            if (MainMenuUIManager.instance != null)
+            {
+                if (!MainMenuUIManager.instance.mainMenuScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+                {
+                    if (!deathScreen.activeInHierarchy)
+                        ResumeButton();
+                }
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    if (!deathScreen.activeInHierarchy)
+                        ResumeButton();
+                }
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                RestartButton();
+            }
+
+            if (deathScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+                BackToMenuButton();
+
+            if (!GameManager.instance.isStarting)
+                startText.enabled = false;
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RestartButton();
-        }
-
-        if (deathScreen.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
-            BackToMenuButton();
-
-        if (!GameManager.instance.isStarting)
-            startText.enabled = false;
+        
     }
+    
 
     void ResumeButton()
     {

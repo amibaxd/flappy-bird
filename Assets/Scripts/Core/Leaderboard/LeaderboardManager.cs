@@ -39,27 +39,45 @@ public class LeaderboardManager : MonoBehaviour
         player.name = _name;
         player.score = _score;
 
-        if (leaderboard.playerList.Count < 10)
-        {
-            leaderboard.playerList.Add(player);
-        }
-        else if(leaderboard.playerList.Count == 10)
-        {
-            int index = leaderboard.playerList.FindIndex(x => x.score < _score);
+        bool playerExists = false;
 
-            if(index != -1)
+        // Check if player already exists in the leaderboard
+        foreach (var item in leaderboard.playerList)
+        {
+            if (item.name == _name)
             {
-                for (int i=8; i>=index; i--)
+                playerExists = true;
+                // If the new score is higher, update the score
+                if (_score > item.score)
                 {
-                    leaderboard.playerList[i + 1] = leaderboard.playerList[i];
+                    item.score = _score;
                 }
-                leaderboard.playerList[index] = player;
+                break;
             }
         }
 
+        // If the player doesn't exist and the leaderboard has less than 10 players, add the player
+        if (!playerExists && leaderboard.playerList.Count < 10)
+        {
+            leaderboard.playerList.Add(player);
+        }
+        else if (!playerExists && leaderboard.playerList.Count == 10)
+        {
+            // If the player doesn't exist and the leaderboard is full, check if the new score is high enough to enter the leaderboard
+            if (_score > leaderboard.playerList[9].score) // Compare with the lowest score on the leaderboard
+            {
+                // Replace the lowest score with the new player
+                leaderboard.playerList[9] = player;
+            }
+        }
+
+        // Sort the leaderboard
         leaderboard.playerList.Sort((x, y) => y.score.CompareTo(x.score));
 
+        // Save the leaderboard
         string leaderboardJson = JsonUtility.ToJson(leaderboard);
         PlayerPrefs.SetString("leaderboardData", leaderboardJson);
+        PlayerPrefs.Save();
     }
+
 }
